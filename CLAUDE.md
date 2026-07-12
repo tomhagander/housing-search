@@ -51,6 +51,8 @@ Agent (agency outreach) fields: `id`, `name`, `url`, `coverage`, `status` (`"pla
 
 After editing a data file, bump its `updated`. `tracker.js`/HTML need no changes when data changes.
 
+**Status changes from the page:** the pages have status buttons. Because hosting is static, clicks are stored only in the viewer's browser (localStorage) as *pending* changes; the page offers a "Copy for Claude" blob like `{"page":"six","changes":[{"id":"otm-123","from":"inbox","to":"promising"}]}`. When the owner pastes such a blob, apply the `to` statuses to the matching options in `data-<page>.js` and bump `updated`. The page auto-clears pending entries once the data file matches. This is the owner moving statuses — the paste is authorization; agents still never change statuses on their own initiative.
+
 ## Sourcing
 
 - Sources, agencies, saved-search recipes and area shortlists live in `playbook.md`. Consult it before any sweep; add newly discovered sources to it.

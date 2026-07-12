@@ -61,6 +61,16 @@ main.listings { display: grid; grid-template-columns: minmax(380px, 44%) 1fr; ga
 .popup .addr { font-size: 13.5px; }
 .popup { font-size: 12.5px; }
 footer { padding: 0 24px 20px; color: var(--muted); font-size: 12px; }
+/* Status change buttons + pending bar */
+.statusbtns { display: flex; gap: 3px; flex-wrap: wrap; }
+.sbtn { font-size: 10.5px; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--muted); cursor: pointer; }
+.sbtn:hover { border-color: var(--accent); color: var(--ink); }
+.sbtn.cur { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pendingbar { background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 10px; padding: 8px 14px; font-size: 13px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.pendingbar button { font-size: 12px; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+.pendingbar button:hover { border-color: var(--accent); }
+#copyDone { color: var(--viewing); font-weight: 600; }
+
 /* Agencies view */
 main.agencies { padding: 0 24px 24px; }
 .agtable { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 13.5px; }

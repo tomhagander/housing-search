@@ -3,6 +3,7 @@
 window.HOUSING_DATA = {
   "updated": "2026-07-12",
   "page": {
+    "id": "duo",
     "title": "London Housing — 2-person search",
     "description": "2 bedrooms, weighted towards Paddington. Price guide £2,200–3,200 pcm total (soft — filter with the slider)."
   },

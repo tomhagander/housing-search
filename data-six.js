@@ -3,6 +3,7 @@
 window.HOUSING_DATA = {
   "updated": "2026-07-12",
   "page": {
+    "id": "six",
     "title": "London Housing — 6-person search",
     "description": "4+ bedrooms (unequal sizes fine), 2+ bathrooms, furnished, ~30 min door-to-door to both Liverpool Street and Paddington (soft). Price guide £6,000–9,200 pcm total (soft — filter with the slider)."
   },

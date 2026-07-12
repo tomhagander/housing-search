@@ -5,6 +5,71 @@
   var DATA = window.HOUSING_DATA;
   var STATUSES = ["inbox", "promising", "shortlist", "viewing", "rejected"];
   var STATUS_COLORS = { inbox: "#d97706", promising: "#7c3aed", shortlist: "#2563eb", viewing: "#059669", rejected: "#9ca3af" };
+
+  // ---- pending status changes (stored locally until applied to the data file) ----
+  var PAGE_ID = (DATA.page && DATA.page.id) || "page";
+  var LS_KEY = "housing-status-overrides-" + PAGE_ID;
+  var overrides = {};
+  try { overrides = JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch (e) { overrides = {}; }
+  // self-heal: drop overrides that no longer differ from (or refer to) the data file
+  Object.keys(overrides).forEach(function (id) {
+    var opt = DATA.options.find(function (o) { return o.id === id; });
+    if (!opt || opt.status === overrides[id]) delete overrides[id];
+  });
+  function saveOverrides() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(overrides)); } catch (e) {}
+  }
+  saveOverrides();
+  function effStatus(o) { return overrides[o.id] || o.status; }
+  function setStatus(id, s) {
+    var opt = DATA.options.find(function (o) { return o.id === id; });
+    if (!opt) return;
+    if (opt.status === s) delete overrides[id]; else overrides[id] = s;
+    saveOverrides();
+    renderPending();
+    render();
+  }
+  function changesBlob() {
+    return "Apply these status changes to data-" + PAGE_ID + ".js (and bump 'updated'):\n" +
+      JSON.stringify({
+        page: PAGE_ID,
+        changes: Object.keys(overrides).map(function (id) {
+          var opt = DATA.options.find(function (o) { return o.id === id; });
+          return { id: id, from: opt ? opt.status : "?", to: overrides[id] };
+        })
+      }, null, 1);
+  }
+  function renderPending() {
+    var bar = document.getElementById("pendingbar");
+    var n = Object.keys(overrides).length;
+    if (!n) { bar.style.display = "none"; bar.innerHTML = ""; return; }
+    bar.style.display = "";
+    bar.innerHTML = "<b>" + n + "</b> status change" + (n > 1 ? "s" : "") +
+      " pending (saved only in this browser) " +
+      '<button id="copyChanges">Copy for Claude</button>' +
+      '<button id="discardChanges">Discard</button>' +
+      '<span id="copyDone" style="display:none"> copied ✓</span>';
+    document.getElementById("copyChanges").onclick = function () {
+      var txt = changesBlob();
+      function done() {
+        var el = document.getElementById("copyDone");
+        if (el) el.style.display = "";
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(done, function () { window.prompt("Copy this:", txt); });
+      } else {
+        window.prompt("Copy this:", txt);
+      }
+    };
+    document.getElementById("discardChanges").onclick = function () {
+      if (window.confirm("Discard all pending status changes?")) {
+        overrides = {};
+        saveOverrides();
+        renderPending();
+        render();
+      }
+    };
+  }
   var state = {
     view: "listings",
     priceMax: 0,
@@ -36,6 +101,7 @@
     "<h1>" + esc(DATA.page.title) + "</h1>" +
     '<div class="sub">' + esc(DATA.page.description) + " · data updated " + esc(DATA.updated) + "</div>" +
     '<div class="viewtabs" id="viewtabs"></div>' +
+    '<div class="pendingbar" id="pendingbar" style="display:none"></div>' +
     '<div class="queue" id="queue"></div>' +
     '<div class="filters" id="filters">' +
     '<label>Max price <input type="range" id="priceMax" min="0" max="12000" step="100"> <span id="priceMaxLabel"></span></label>' +
@@ -101,7 +167,7 @@
 
   function visible() {
     return DATA.options.filter(function (o) {
-      if (!state.statuses[o.status]) return false;
+      if (!state.statuses[effStatus(o)]) return false;
       if (state.hideGone && o.availability === "gone") return false;
       if (o.price_pcm != null && +priceMaxInput.value < +priceMaxInput.max && o.price_pcm > state.priceMax) return false;
       if (state.minBeds && (o.beds == null ? false : o.beds < state.minBeds)) return false;
@@ -116,7 +182,7 @@
   // ---------- queue ----------
   function buildQueue() {
     var opts = DATA.options;
-    var inbox = opts.filter(function (o) { return o.status === "inbox" && o.availability !== "gone"; }).length;
+    var inbox = opts.filter(function (o) { return effStatus(o) === "inbox" && o.availability !== "gone"; }).length;
     var check = opts.filter(function (o) { return o.needs_check; }).length;
     var stale = opts.filter(function (o) { return o.availability === "live" && daysSince(o.last_checked) > 14; }).length;
     var agents = DATA.agents || [];
@@ -168,10 +234,15 @@
     return parts.length ? parts.join(" · ") + " (est.)" : "";
   }
   function cardHtml(o) {
-    var badges = ['<span class="badge b-' + esc(o.status) + '">' + esc(o.status) + "</span>"];
+    var st = effStatus(o);
+    var badges = ['<span class="badge b-' + esc(st) + '">' + esc(st) + "</span>"];
+    if (overrides[o.id]) badges.push('<span class="badge b-check" title="Not yet saved to the data file">pending</span>');
     if (o.availability === "gone") badges.push('<span class="badge b-gone">gone</span>');
     if (o.availability === "unknown") badges.push('<span class="badge b-check">availability?</span>');
     if (o.needs_check) badges.push('<span class="badge b-check">needs check</span>');
+    var statusBtns = '<div class="statusbtns">' + STATUSES.map(function (s) {
+      return '<button class="sbtn' + (s === st ? " cur" : "") + '" data-id="' + esc(o.id) + '" data-s="' + esc(s) + '">' + esc(s) + "</button>";
+    }).join("") + "</div>";
     var commute = commuteText(o);
     return '<div class="row1"><span class="addr">' + esc(o.address) + '</span><span class="price">' + fmtPrice(o) + "</span></div>" +
       '<div class="meta"><span>' + (o.beds != null ? o.beds : "?") + " bed · " + (o.baths != null ? o.baths : "?") + " bath</span>" +
@@ -184,7 +255,8 @@
       '<div class="badges">' + badges.join("") + "</div>" +
       (o.summary ? '<div class="summary">' + esc(o.summary) + "</div>" : "") +
       (o.price_note && o.price_note !== "unknown" ? '<div class="summary" style="color:var(--muted)">' + esc(o.price_note) + "</div>" : "") +
-      '<div style="margin-top:7px"><a class="out" href="' + esc(o.url) + '" target="_blank" rel="noopener">Open listing ↗</a></div>';
+      '<div style="margin-top:7px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">' +
+      '<a class="out" href="' + esc(o.url) + '" target="_blank" rel="noopener">Open listing ↗</a>' + statusBtns + "</div>";
   }
 
   // ---------- agencies ----------
@@ -219,15 +291,21 @@
       card.className = "card" + (o.availability === "gone" ? " gone" : "");
       card.innerHTML = cardHtml(o);
       card.onclick = function (e) {
-        if (e.target.tagName === "A") return;
+        if (e.target.tagName === "A" || e.target.tagName === "BUTTON") return;
         var m = markersById[o.id];
         if (m) { map.setView(m.getLatLng(), Math.max(map.getZoom(), 14)); m.openPopup(); }
       };
+      card.querySelectorAll(".sbtn").forEach(function (b) {
+        b.onclick = function (e) {
+          e.stopPropagation();
+          setStatus(b.dataset.id, b.dataset.s);
+        };
+      });
       listEl.appendChild(card);
       if (o.lat != null && o.lng != null) {
         var m = L.circleMarker([o.lat, o.lng], {
           radius: 9, color: "#fff", weight: 2,
-          fillColor: STATUS_COLORS[o.status] || "#666",
+          fillColor: STATUS_COLORS[effStatus(o)] || "#666",
           fillOpacity: o.availability === "gone" ? 0.35 : 0.95
         }).bindPopup(popupHtml(o));
         m.addTo(markerLayer);
@@ -240,5 +318,6 @@
 
   buildViewTabs();
   renderAgents();
+  renderPending();
   render();
 })();

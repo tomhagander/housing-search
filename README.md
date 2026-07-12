@@ -15,6 +15,8 @@ The pages are deliberately separate (own data, own map anchors, no cross-links) 
 
 Statuses: **inbox** (newly found, unreviewed) → **promising** → **shortlist** → **viewing** → **rejected**. "Gone" = listing was let/removed (kept for reference).
 
+Each card has status buttons. The site is static, so clicks are saved only in *your* browser and marked "pending" — use the **Copy for Claude** button that appears at the top and paste the blob into a Claude session; it updates the data file so the change becomes permanent for everyone.
+
 ## Files
 
 - `index.html` / `duo.html` — the two pages
