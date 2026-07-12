@@ -51,7 +51,7 @@ Agent (agency outreach) fields: `id`, `name`, `url`, `coverage`, `status` (`"pla
 
 After editing a data file, bump its `updated`. `tracker.js`/HTML need no changes when data changes.
 
-**Status changes from the page:** the pages have status buttons. Because hosting is static, clicks are stored only in the viewer's browser (localStorage) as *pending* changes; the page offers a "Copy for Claude" blob like `{"page":"six","changes":[{"id":"otm-123","from":"inbox","to":"promising"}]}`. When the owner pastes such a blob, apply the `to` statuses to the matching options in `data-<page>.js` and bump `updated`. The page auto-clears pending entries once the data file matches. This is the owner moving statuses — the paste is authorization; agents still never change statuses on their own initiative.
+**Status changes and data checks from the page:** the pages have status buttons plus a "✎ check" button for free-text data-check notes (e.g. "gone/let", "price now £6,400", "actually 2 baths"). Because hosting is static, both are stored only in the viewer's browser (localStorage) as *pending* changes; the page offers a "Copy for Claude" blob like `{"page":"six","changes":[{"id":"otm-123","from":"inbox","to":"promising"}],"checks":[{"id":"sv-220057","note":"gone"}]}`. When the owner pastes such a blob: apply the `to` statuses; for each `checks` entry update the option's fields per the note (price, beds, availability, …), set its `last_checked` to today, clear `needs_check` if resolved; bump `updated`. Pending entries auto-clear once the data file matches (status equals base, or `last_checked` changed). The paste is authorization from the owner; agents still never change statuses on their own initiative.
 
 ## Sourcing
 

@@ -20,6 +20,34 @@
     try { localStorage.setItem(LS_KEY, JSON.stringify(overrides)); } catch (e) {}
   }
   saveOverrides();
+  // ---- pending data-check notes (free text, same copy/paste flow) ----
+  var CK_KEY = "housing-check-notes-" + PAGE_ID;
+  var checks = {};
+  try { checks = JSON.parse(localStorage.getItem(CK_KEY) || "{}"); } catch (e) { checks = {}; }
+  // self-heal: drop notes whose option is gone or was touched since (last_checked changed)
+  Object.keys(checks).forEach(function (id) {
+    var opt = DATA.options.find(function (o) { return o.id === id; });
+    if (!opt || (opt.last_checked || null) !== checks[id].base) delete checks[id];
+  });
+  function saveChecks() {
+    try { localStorage.setItem(CK_KEY, JSON.stringify(checks)); } catch (e) {}
+  }
+  saveChecks();
+  function setCheck(id) {
+    var opt = DATA.options.find(function (o) { return o.id === id; });
+    if (!opt) return;
+    var existing = checks[id] ? checks[id].note : "";
+    var t = window.prompt(
+      'Data check for "' + opt.address + '" — write what you found, e.g. "still live", "gone/let", "price now £6,400", "actually 2 baths, available 1 Sep". Leave empty to clear.',
+      existing
+    );
+    if (t === null) return;
+    t = t.trim();
+    if (!t) delete checks[id]; else checks[id] = { note: t, base: opt.last_checked || null };
+    saveChecks();
+    renderPending();
+    render();
+  }
   function effStatus(o) { return overrides[o.id] || o.status; }
   function setStatus(id, s) {
     var opt = DATA.options.find(function (o) { return o.id === id; });
@@ -30,22 +58,25 @@
     render();
   }
   function changesBlob() {
-    return "Apply these status changes to data-" + PAGE_ID + ".js (and bump 'updated'):\n" +
+    return "Apply to data-" + PAGE_ID + ".js: set statuses per 'changes'; for each 'checks' entry update the option's fields per the note, set last_checked to today, clear needs_check if resolved; bump 'updated'.\n" +
       JSON.stringify({
         page: PAGE_ID,
         changes: Object.keys(overrides).map(function (id) {
           var opt = DATA.options.find(function (o) { return o.id === id; });
           return { id: id, from: opt ? opt.status : "?", to: overrides[id] };
+        }),
+        checks: Object.keys(checks).map(function (id) {
+          return { id: id, note: checks[id].note };
         })
       }, null, 1);
   }
   function renderPending() {
     var bar = document.getElementById("pendingbar");
-    var n = Object.keys(overrides).length;
+    var n = Object.keys(overrides).length + Object.keys(checks).length;
     if (!n) { bar.style.display = "none"; bar.innerHTML = ""; return; }
     bar.style.display = "";
-    bar.innerHTML = "<b>" + n + "</b> status change" + (n > 1 ? "s" : "") +
-      " pending (saved only in this browser) " +
+    bar.innerHTML = "<b>" + n + "</b> pending update" + (n > 1 ? "s" : "") +
+      " (saved only in this browser) " +
       '<button id="copyChanges">Copy for Claude</button>' +
       '<button id="discardChanges">Discard</button>' +
       '<span id="copyDone" style="display:none"> copied ✓</span>';
@@ -62,9 +93,11 @@
       }
     };
     document.getElementById("discardChanges").onclick = function () {
-      if (window.confirm("Discard all pending status changes?")) {
+      if (window.confirm("Discard all pending status changes and data-check notes?")) {
         overrides = {};
+        checks = {};
         saveOverrides();
+        saveChecks();
         renderPending();
         render();
       }
@@ -236,13 +269,13 @@
   function cardHtml(o) {
     var st = effStatus(o);
     var badges = ['<span class="badge b-' + esc(st) + '">' + esc(st) + "</span>"];
-    if (overrides[o.id]) badges.push('<span class="badge b-check" title="Not yet saved to the data file">pending</span>');
+    if (overrides[o.id] || checks[o.id]) badges.push('<span class="badge b-check" title="Not yet saved to the data file">pending</span>');
     if (o.availability === "gone") badges.push('<span class="badge b-gone">gone</span>');
     if (o.availability === "unknown") badges.push('<span class="badge b-check">availability?</span>');
     if (o.needs_check) badges.push('<span class="badge b-check">needs check</span>');
     var statusBtns = '<div class="statusbtns">' + STATUSES.map(function (s) {
       return '<button class="sbtn' + (s === st ? " cur" : "") + '" data-id="' + esc(o.id) + '" data-s="' + esc(s) + '">' + esc(s) + "</button>";
-    }).join("") + "</div>";
+    }).join("") + '<button class="sbtn cbtn" data-id="' + esc(o.id) + '" title="Record what you found when checking this listing’s data">✎ check</button></div>';
     var commute = commuteText(o);
     return '<div class="row1"><span class="addr">' + esc(o.address) + '</span><span class="price">' + fmtPrice(o) + "</span></div>" +
       '<div class="meta"><span>' + (o.beds != null ? o.beds : "?") + " bed · " + (o.baths != null ? o.baths : "?") + " bath</span>" +
@@ -255,6 +288,7 @@
       '<div class="badges">' + badges.join("") + "</div>" +
       (o.summary ? '<div class="summary">' + esc(o.summary) + "</div>" : "") +
       (o.price_note && o.price_note !== "unknown" ? '<div class="summary" style="color:var(--muted)">' + esc(o.price_note) + "</div>" : "") +
+      (checks[o.id] ? '<div class="summary checknote">✎ pending data check: ' + esc(checks[o.id].note) + "</div>" : "") +
       '<div style="margin-top:7px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">' +
       '<a class="out" href="' + esc(o.url) + '" target="_blank" rel="noopener">Open listing ↗</a>' + statusBtns + "</div>";
   }
@@ -298,7 +332,8 @@
       card.querySelectorAll(".sbtn").forEach(function (b) {
         b.onclick = function (e) {
           e.stopPropagation();
-          setStatus(b.dataset.id, b.dataset.s);
+          if (b.classList.contains("cbtn")) setCheck(b.dataset.id);
+          else setStatus(b.dataset.id, b.dataset.s);
         };
       });
       listEl.appendChild(card);
