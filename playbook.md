@@ -104,7 +104,7 @@ Derived from the ~30 min door-to-door constraint to Liverpool Street AND Padding
 - **Ealing Broadway / West Ealing / Acton (W3, W5, W13)** — Elizabeth line: Paddington ~10, LivSt ~22. Big houses, gardens. £3.5–5.5k. Suburban trade-off.
 
 ### Scenario `duo` (guide: typical 2-bed furnished pcm)
-- **Paddington / Bayswater / W2** — zero commute for Tom. £2.6–3.5k.
+- **Paddington / Bayswater / W2** — zero commute to Paddington. £2.6–3.5k.
 - **Maida Vale / W9** — £2.4–3k.
 - **Queen's Park / Kensal Green (NW6/NW10)** — Bakerloo direct to Paddington ~10–15. £2.2–2.8k.
 - **Kilburn (NW6)** — value, £2–2.6k.
@@ -115,4 +115,4 @@ Derived from the ~30 min door-to-door constraint to Liverpool Street AND Padding
 
 ## 8. Agent outreach log
 
-Outreach tracking now lives in the tracker itself: the `agents` array in `data-six.js` / `data-duo.js`, shown in each page's **Agencies** tab. Claude drafts intro emails / requirement sheets; Tom sends them; update the agency's `status`/`contacted`/`note` in the data file afterwards.
+Outreach tracking now lives in the tracker itself: the `agents` array in `data-six.js` / `data-duo.js`, shown in each page's **Agencies** tab. Claude drafts intro emails / requirement sheets; the owner sends them; update the agency's `status`/`contacted`/`note` in the data file afterwards.
