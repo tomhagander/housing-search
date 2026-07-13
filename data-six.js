@@ -1,7 +1,7 @@
 // Data for the 6-person search page (index.html). See CLAUDE.md for schema & rules.
 // Keep the object valid JSON. Bump "updated" after every change.
 window.HOUSING_DATA = {
-  "updated": "2026-07-12",
+  "updated": "2026-07-13",
   "page": {
     "id": "six",
     "title": "London Housing — search for up to 6 people",
@@ -64,11 +64,11 @@ window.HOUSING_DATA = {
       "area": "Westminster, SW1P 4FH",
       "lat": 51.4922, "lng": -0.1330, "approx_location": true,
       "price_pcm": 6250, "price_note": "",
-      "beds": 3, "baths": null, "furnished": "unknown",
-      "availability": "unknown", "status": "promising",
+      "beds": 3, "baths": 3, "furnished": "unknown",
+      "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 30, "paddington": 25 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": true,
-      "summary": "3-bed flat/apartment in a Westminster mews."
+      "added": "2026-07-12", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "3-bed/3-bath flat/apartment in a Westminster mews. Confirmed available."
     },
     {
       "id": "sv-210001",
@@ -78,11 +78,11 @@ window.HOUSING_DATA = {
       "area": "Westminster, SW1P 2NU",
       "lat": 51.4935, "lng": -0.1352, "approx_location": true,
       "price_pcm": 6500, "price_note": "",
-      "beds": 3, "baths": null, "furnished": "unknown",
-      "availability": "unknown", "status": "promising",
+      "beds": 3, "baths": 2, "furnished": "unknown",
+      "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 30, "paddington": 25 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": true,
-      "summary": "3-bed flat/apartment overlooking Vincent Square."
+      "added": "2026-07-12", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "3-bed/2-bath flat/apartment overlooking Vincent Square. Confirmed available."
     },
     {
       "id": "sv-120102",
@@ -95,7 +95,7 @@ window.HOUSING_DATA = {
       "beds": null, "baths": null, "furnished": "unknown",
       "availability": "gone", "status": "promising",
       "commute_est": { "liverpool_street": 35, "paddington": 25 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": true,
+      "added": "2026-07-12", "last_checked": "2026-07-13", "needs_check": false,
       "summary": "Savills Pimlico listing — confirmed removed from the market."
     },
     {
@@ -105,12 +105,12 @@ window.HOUSING_DATA = {
       "address": "Bartholomew Close, Barbican",
       "area": "Farringdon / Barbican, EC1A 7BD",
       "lat": 51.5172, "lng": -0.0995, "approx_location": true,
-      "price_pcm": 8750, "price_note": "New development",
-      "beds": 3, "baths": null, "furnished": "unknown",
-      "availability": "unknown", "status": "promising",
+      "price_pcm": 8750, "price_note": "New development; UNDER OFFER — could fall through",
+      "beds": 3, "baths": 3, "furnished": "unknown",
+      "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 10, "paddington": 15 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": true,
-      "summary": "3-bed new-development flat with large terrace by the Barbican; Farringdon Elizabeth line close."
+      "added": "2026-07-12", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "3-bed/3-bath new-development flat with large terrace by the Barbican; Farringdon Elizabeth line close."
     },
     {
       "id": "sv-170064",
@@ -119,12 +119,12 @@ window.HOUSING_DATA = {
       "address": "Cambridge Street, Pimlico",
       "area": "Pimlico, SW1V 4QH",
       "lat": 51.4885, "lng": -0.1400, "approx_location": true,
-      "price_pcm": 8000, "price_note": "",
-      "beds": 5, "baths": null, "furnished": "unknown",
-      "availability": "unknown", "status": "promising",
+      "price_pcm": 8000, "price_note": "Confirmed LET",
+      "beds": 5, "baths": 3, "furnished": "unknown",
+      "availability": "gone", "status": "promising",
       "commute_est": { "liverpool_street": 35, "paddington": 25 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": true,
-      "summary": "5-bed house in Pimlico — rare bedroom count for the group."
+      "added": "2026-07-12", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "5-bed/3-bath house in Pimlico — rare bedroom count for the group. Now let."
     },
     {
       "id": "sv-120331",
@@ -341,6 +341,76 @@ window.HOUSING_DATA = {
       "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
       "available_from": "2026-08-12",
       "summary": "Spacious 3–4 bed duplex maisonette with two study spaces and garden access near Westbourne Grove."
+    },
+    {
+      "id": "fx-chpk0155087",
+      "url": "https://www.foxtons.co.uk/properties-to-rent/sw1p/chpk0155087",
+      "source": "Foxtons",
+      "address": "Carlisle Mansions, Westminster",
+      "area": "Westminster / Victoria, SW1P",
+      "lat": 51.4955, "lng": -0.1400, "approx_location": true,
+      "price_pcm": 8251, "price_note": "£1,904 pw; 1,879 sq ft; Zero Deposit scheme",
+      "beds": 4, "baths": 3, "furnished": "unknown",
+      "availability": "live", "status": "promising",
+      "commute_est": { "liverpool_street": 30, "paddington": 25 },
+      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "4-bed/3-bath mansion-block flat (1,879 sq ft) near Victoria."
+    },
+    {
+      "id": "sv-250097",
+      "url": "https://search.savills.com/property-detail/gbhaclvpr250097l",
+      "source": "Savills",
+      "address": "Unknown (Savills page needs browser check)",
+      "area": "Unknown",
+      "lat": null, "lng": null, "approx_location": false,
+      "price_pcm": null, "price_note": "unknown",
+      "beds": null, "baths": null, "furnished": "unknown",
+      "availability": "unknown", "status": "promising",
+      "commute_est": null,
+      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": true,
+      "summary": "Savills listing (2025 vintage) — page is client-rendered; metadata pending a browser-based check."
+    },
+    {
+      "id": "zp-73659735",
+      "url": "https://www.zoopla.co.uk/to-rent/details/73659735/",
+      "source": "Zoopla (UK Sotheby's)",
+      "address": "Catherine Place, Westminster",
+      "area": "Westminster / St James's, SW1E",
+      "lat": 51.4985, "lng": -0.1400, "approx_location": true,
+      "price_pcm": 9997, "price_note": "£2,307 pw; added 8 Jul 2026",
+      "beds": 4, "baths": 3, "furnished": "yes",
+      "availability": "live", "status": "promising",
+      "commute_est": { "liverpool_street": 30, "paddington": 25 },
+      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "Period townhouse over five floors (2,526 sq ft) with courtyard garden, by St James's Park."
+    },
+    {
+      "id": "zp-73632620",
+      "url": "https://www.zoopla.co.uk/to-rent/details/73632620/",
+      "source": "Zoopla (Rickman Properties)",
+      "address": "Princes Gate Mews, South Kensington",
+      "area": "South Kensington, SW7",
+      "lat": 51.4975, "lng": -0.1730, "approx_location": true,
+      "price_pcm": 10000, "price_note": "£2,308 pw; furnished or unfurnished; available immediately",
+      "beds": 4, "baths": 3, "furnished": "yes",
+      "availability": "live", "status": "promising",
+      "commute_est": { "liverpool_street": 30, "paddington": 20 },
+      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "Mews house (2,129 sq ft) with garage, terrace and 3 baths, short walk to South Ken/Knightsbridge."
+    },
+    {
+      "id": "zp-73201384",
+      "url": "https://www.zoopla.co.uk/to-rent/details/73201384/",
+      "source": "Zoopla (Emoov)",
+      "address": "Portman Mansions, Porter Street, Marylebone",
+      "area": "Marylebone, W1U",
+      "lat": 51.5205, "lng": -0.1580, "approx_location": true,
+      "price_pcm": 8990, "price_note": "£2,075 pw; marketed for SHORT-TERM stays from 1 month — confirm long-term possible; reduced 20 May",
+      "beds": 4, "baths": 3, "furnished": "unknown",
+      "availability": "live", "status": "promising",
+      "commute_est": { "liverpool_street": 20, "paddington": 12 },
+      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "4-double-bed + study mansion-block flat (1,593 sq ft) with patio on Chiltern Street; porter."
     }
   ]
 };

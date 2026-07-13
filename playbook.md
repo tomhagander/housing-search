@@ -113,6 +113,15 @@ Derived from the ~30 min door-to-door constraint to Liverpool Street AND Padding
 - **Acton / Ealing (Elizabeth line)** — Paddington ~10. £1.8–2.4k.
 - **Marylebone / St John's Wood** — pricier, £3k+.
 
-## 8. Agent outreach log
+## 8. Source fetchability (probed 2026-07-13)
+
+For agents doing sweeps with plain `web_fetch` (no browser):
+
+- **Fully fetchable**: Zoopla (search + detail pages — best portal for fetch), OnTheMarket (detail pages reliable; search pages serve stale cache, verify each candidate individually; query-string filters ignored), OpenRent (filters ignored server-side, use area URLs), Foxtons, Dexters, Hamptons (dead listings 301-redirect to /properties/lettings — useful gone-detector), KFH, Marsh & Parsons (listing URLs not exposed in search HTML — find via site: search), PrimeLocation (needs full location slug), Gumtree (mixed quality), Quintain Living, Uncle.
+- **Partially fetchable**: Rightmove (search pages render, detail pages return empty body), Winkworth (search pages with status badges render, detail pages redirect to homepage), Chestertons (search pages with Let/Long Let labels render, detail pages are client-rendered shells).
+- **Blocked / client-rendered — use Claude in Chrome browser tools**: Savills (search.savills.com), SpareRoom, Kay & Co.
+- Way of Life: fetchable but London 2-bed stock was waitlist-only and poorly located for Paddington.
+
+## 9. Agent outreach log
 
 Outreach tracking now lives in the tracker itself: the `agents` array in `data-six.js` / `data-duo.js`, shown in each page's **Agencies** tab. Claude drafts intro emails / requirement sheets; the owner sends them; update the agency's `status`/`contacted`/`note` in the data file afterwards.
