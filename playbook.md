@@ -54,9 +54,9 @@ Register directly by phone/email with branches in target areas — registered ap
 | The Modern House | https://www.themodernhouse.com/ | Design-led; rentals are rare but exceptional when they appear. |
 | Author King's Cross | https://www.authorkingscross.com/ | BTR (one seed is here). 3-bed+study units, concierge/gym; unequal-room setups possible. |
 | Get Living | https://www.getliving.com/ | BTR — East Village (Stratford; ~19 min Liverpool St, Elizabeth line to Paddington). |
-| Quintain Living | https://www.quintainliving.com/ | BTR — Wembley Park. Better for `duo` (Bakerloo/Met lines). |
+| Quintain Living | https://www.quintainliving.com/ | BTR — Wembley Park. NOT for `duo` (owner 2026-07-13: Wembley too far). |
 | Way of Life | https://www.wayoflife.com/ | BTR, several central-ish buildings. |
-| Uncle | https://uncle.co.uk/ | BTR — Elephant, Wembley, Deptford; `duo` candidates. |
+| Uncle | https://uncle.co.uk/ | BTR — Elephant, Wembley, Deptford. NOT for `duo` (too far from Paddington). |
 
 BTR pros: instant availability, no chains, sharers welcome, all-inclusive options. Cons: rarely 4+ beds — mainly a `duo` channel, plus occasional 3-bed+study for `six`.
 

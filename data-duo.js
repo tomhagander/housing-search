@@ -5,7 +5,7 @@ window.HOUSING_DATA = {
   "page": {
     "id": "duo",
     "title": "London Housing — 2-person search",
-    "description": "2 bedrooms, weighted towards Paddington. Price guide £2,200–3,200 pcm total (soft — filter with the slider)."
+    "description": "2 bedrooms, weighted towards Paddington (roughly ≤25 min door-to-door; Wembley and similar are too far). Price guide £2,200–3,200 pcm total (soft — filter with the slider)."
   },
   "stations": [
     { "key": "paddington", "name": "Paddington", "label": "Padd", "lat": 51.5154, "lng": -0.1755 }
@@ -18,8 +18,7 @@ window.HOUSING_DATA = {
     { "id": "foxtons", "name": "Foxtons (Paddington)", "url": "https://www.foxtons.co.uk/properties-to-rent/", "coverage": "W2 and network-wide", "status": "planned", "contacted": null, "note": "" },
     { "id": "marshparsons", "name": "Marsh & Parsons (Little Venice)", "url": "https://www.marshandparsons.co.uk/rent/", "coverage": "W9, W2, NW6", "status": "planned", "contacted": null, "note": "" },
     { "id": "hamptons", "name": "Hamptons (Maida Vale)", "url": "https://www.hamptons.co.uk/rent/", "coverage": "W9, NW6", "status": "planned", "contacted": null, "note": "" },
-    { "id": "quintain", "name": "Quintain Living", "url": "https://www.quintainliving.com/", "coverage": "Wembley Park (BTR)", "status": "planned", "contacted": null, "note": "Build-to-rent: instant availability, sharers welcome" },
-    { "id": "uncle", "name": "Uncle", "url": "https://uncle.co.uk/", "coverage": "Wembley, Elephant, Deptford (BTR)", "status": "planned", "contacted": null, "note": "" }
+    { "id": "kfh", "name": "KFH (Queen's Park / West Hampstead)", "url": "https://www.kfh.co.uk/rent", "coverage": "NW6, NW10", "status": "planned", "contacted": null, "note": "" }
   ],
   "options": [
     {
@@ -316,32 +315,18 @@ window.HOUSING_DATA = {
       "summary": "New-build 3rd-floor 2-bed/2-bath (816 sq ft) with balcony, near West Ealing Elizabeth line."
     },
     {
-      "id": "wk-sjd260250",
-      "url": "https://www.winkworth.co.uk/properties/lettings/stuart-tower-105-maida-vale-maida-vale-london-w9/SJD260250",
+      "id": "wk-mdv260030",
+      "url": "https://www.winkworth.co.uk/properties/lettings/stuart-tower-105-maida-vale-london-w9/MDV260030",
       "source": "Winkworth",
       "address": "Stuart Tower, 105 Maida Vale",
       "area": "Maida Vale, W9",
       "lat": 51.5286, "lng": -0.1830, "approx_location": true,
-      "price_pcm": 2400, "price_note": "£554 pw; new instruction",
-      "beds": 2, "baths": 1, "furnished": "unknown",
+      "price_pcm": 2400, "price_note": "£554 pw; unfurnished or part-furnished",
+      "beds": 2, "baths": 1, "furnished": "part",
       "availability": "live", "status": "inbox",
       "commute_est": { "paddington": 12 },
-      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": true,
-      "summary": "7th-floor 2-bed in purpose-built block at Sutherland Ave corner; detail page needs a browser check."
-    },
-    {
-      "id": "wk-mdv220052",
-      "url": "https://www.winkworth.co.uk/properties/lettings/sutherland-avenue-london-w9/MDV220052",
-      "source": "Winkworth",
-      "address": "Sutherland Avenue, Maida Vale",
-      "area": "Maida Vale, W9",
-      "lat": 51.5265, "lng": -0.1900, "approx_location": true,
-      "price_pcm": 2925, "price_note": "£675 pw",
-      "beds": 2, "baths": 1, "furnished": "unknown",
-      "availability": "live", "status": "inbox",
-      "commute_est": { "paddington": 12 },
-      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": true,
-      "summary": "2-bed on second floor of period conversion, 0.4 mi to Warwick Avenue; detail page needs a browser check."
+      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "summary": "13th-floor 2-bed with Little Venice views in purpose-built block, 3 lifts, 24h security; 0.4 mi to Warwick Avenue."
     },
     {
       "id": "hm-p322120",
@@ -373,13 +358,13 @@ window.HOUSING_DATA = {
       "summary": "New-build 2-bed/2-bath opposite Queen's Park station, 24h concierge, balcony; short-let terms."
     },
     {
-      "id": "mp-shirland-w9",
-      "url": "https://www.marshandparsons.co.uk/properties-to-rent/london/shirland-road-w9",
+      "id": "mp-hmm230034",
+      "url": "https://www.marshandparsons.co.uk/properties-to-rent/london/property/HMM230034/shirland-road/",
       "source": "Marsh & Parsons",
       "address": "Shirland Road, Maida Vale",
       "area": "Maida Vale, W9",
       "lat": 51.5286, "lng": -0.1975, "approx_location": true,
-      "price_pcm": 3302, "price_note": "£762 pw; URL is street-level search page (listing URL not exposed to fetch)",
+      "price_pcm": 3302, "price_note": "£762 pw",
       "beds": 2, "baths": 2, "furnished": "yes",
       "availability": "live", "status": "inbox",
       "commute_est": { "paddington": 15 },
@@ -395,10 +380,10 @@ window.HOUSING_DATA = {
       "lat": 51.5568, "lng": -0.2818, "approx_location": true,
       "price_pcm": 2923, "price_note": "Utilities + wifi included, no fees; sister units same day: £2,891 and £2,917 unfurnished",
       "beds": 2, "baths": null, "furnished": "yes",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "rejected",
       "commute_est": { "paddington": 30 },
       "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
-      "summary": "Furnished 69 sqm loft-style 2-bed in BTR building: gym, roof terraces, pet-friendly, 24h support."
+      "summary": "Furnished 69 sqm loft-style 2-bed in BTR building. Rejected: Wembley too far out."
     },
     {
       "id": "un-wembley-2bed",
@@ -409,24 +394,24 @@ window.HOUSING_DATA = {
       "lat": 51.5528, "lng": -0.3020, "approx_location": true,
       "price_pcm": 2250, "price_note": "Units from £2,250 (also £2,600); furnished or unfurnished",
       "beds": 2, "baths": null, "furnished": "part",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "rejected",
       "commute_est": { "paddington": 25 },
       "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
-      "summary": "BTR 2-beds with en-suites, balconies, gym, coworking; near Wembley Central (Bakerloo)."
+      "summary": "BTR 2-beds with en-suites, balconies, gym, coworking; near Wembley Central. Rejected: Wembley too far out."
     },
     {
       "id": "ch-lil020097",
-      "url": "https://www.chestertons.co.uk/properties/21667865/lettings/LIL020097",
-      "source": "Chestertons",
+      "url": "https://www.rightmove.co.uk/properties/88172457",
+      "source": "Chestertons (via Rightmove)",
       "address": "Warwick Avenue, Little Venice",
       "area": "Little Venice, W9",
       "lat": 51.5233, "lng": -0.1830, "approx_location": true,
-      "price_pcm": 8450, "price_note": "FAR above guide — included because price is never a hard filter; 1,400 sq ft",
+      "price_pcm": 8450, "price_note": "FAR above guide — included because price is never a hard filter; 1,400 sq ft; verify current price/availability",
       "beds": 2, "baths": 2, "furnished": "unknown",
       "availability": "live", "status": "inbox",
       "commute_est": { "paddington": 8 },
       "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": true,
-      "summary": "Large 1,400 sq ft 2-bed/2-bath on prime Warwick Avenue; detail page needs a browser check."
+      "summary": "1,400 sq ft 2-bed/2-bath with 42' private garden + communal gardens with tennis courts, prime Warwick Avenue."
     }
   ]
 };

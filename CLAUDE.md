@@ -26,7 +26,9 @@ Each scenario is a **completely separate page with its own data file**, so the o
 Current scenarios:
 
 1. **`six`** — all 6 together. 4+ bedrooms (2 couple rooms, 2 singles; unequal room sizes are a *feature* — enables an unequal rent split so the lower-budget single pays less). 2+ bathrooms. Furnished. ~30 min door-to-door to BOTH Liverpool Street and Paddington (soft — 35–40 min OK for a great place). Price guide £6,000–9,200 pcm total, but price is NEVER a hard constraint.
-2. **`duo`** — the two singles, 2-bed, Paddington-weighted, cheaper. Broad price range, guide ~£2,200–3,200 pcm total.
+2. **`duo`** — the two singles, 2-bed, Paddington-weighted, cheaper. Broad price range, guide ~£2,200–3,200 pcm total. Commute cap ~25 min door-to-door to Paddington: Wembley and comparably distant areas are OUT (owner decision 2026-07-13).
+
+Agents adding options must verify the listing URL actually resolves to the listing (fetch it, or find the canonical URL via search). Never store constructed/guessed URLs — if the detail page can't be reached, find the listing's Rightmove/Zoopla/OTM mirror or flag `needs_check` with a working search-page URL.
 
 ## Division of labour — CRITICAL
 
