@@ -39,7 +39,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 4, "furnished": "unknown",
       "availability": "live", "status": "rejected",
       "commute_est": { "liverpool_street": 25, "paddington": 5 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "4-bed/4-bath duplex (~2,166 sq ft) with private terrace, period detail, next to Paddington."
     },
     {
@@ -151,7 +151,7 @@ window.HOUSING_DATA = {
       "beds": 3, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 20 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "3-bed/3-bath BTR flat (1,209 sq ft), 24h concierge, gym, pet-friendly; available now."
     },
     {
@@ -193,7 +193,7 @@ window.HOUSING_DATA = {
       "beds": 3, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 15 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "3-bed/3-bath period flat (1,085 sq ft) between Marylebone and Fitzrovia. Short let only."
     },
     {
@@ -207,7 +207,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "no",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 30 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "Georgian end-of-terrace over five floors (1,765 sq ft), garden + terraces, near Angel. Unfurnished."
     },
     {
@@ -221,7 +221,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 35 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "3-storey period house (1,893 sq ft) with decked garden by Highbury Fields; furnished or unfurnished."
     },
     {
@@ -235,7 +235,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 15 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "Refurbished lateral ground-floor flat (1,409 sq ft) in portered block on Portman Square; HMO licence in place."
     },
     {
@@ -249,7 +249,7 @@ window.HOUSING_DATA = {
       "beds": 3, "baths": 3, "furnished": "unknown",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 15 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "5th-floor 3-bed/3-bath (1,103 sq ft) in new development, 24h concierge, private outside space."
     },
     {
@@ -263,7 +263,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "rejected",
       "commute_est": { "liverpool_street": 20, "paddington": 20 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-07-14",
       "summary": "Refurbished 4-double-bed terrace over 3 floors near King's Cross; four en-suite shower rooms, patio garden."
     },
@@ -278,7 +278,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 5, "paddington": 20 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-08-24",
       "summary": "Top-floor 4-double-bed apartment with roof terrace and acoustic glass, minutes' walk from Liverpool Street."
     },
@@ -293,7 +293,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 4, "furnished": "yes",
       "availability": "live", "status": "rejected",
       "commute_est": { "liverpool_street": 15, "paddington": 30 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-09-15",
       "summary": "Victorian terrace with 4 en-suite bedrooms, open-plan living and garden; available exactly 15 Sep 2026."
     },
@@ -308,7 +308,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 2, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 25, "paddington": 12 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-08-14",
       "summary": "Bright 1,380 sq ft 9th-floor apartment in portered mansion block near Marble Arch."
     },
@@ -323,7 +323,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 30, "paddington": 12 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-08-17",
       "summary": "Renovated 1,756 sq ft period mews house with 4 beds, 3 baths and a study, short walk to Hyde Park."
     },
@@ -338,7 +338,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 30, "paddington": 15 },
-      "added": "2026-07-12", "last_checked": "2026-07-12", "needs_check": false,
+      "added": "2026-07-12", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-08-12",
       "summary": "Spacious 3–4 bed duplex maisonette with two study spaces and garden access near Westbourne Grove."
     },
@@ -353,7 +353,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "unknown",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 30, "paddington": 25 },
-      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "added": "2026-07-13", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "4-bed/3-bath mansion-block flat (1,879 sq ft) near Victoria."
     },
     {
@@ -381,7 +381,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 30, "paddington": 25 },
-      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "added": "2026-07-13", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "Period townhouse over five floors (2,526 sq ft) with courtyard garden, by St James's Park."
     },
     {
@@ -395,7 +395,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "yes",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 30, "paddington": 20 },
-      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "added": "2026-07-13", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "Mews house (2,129 sq ft) with garage, terrace and 3 baths, short walk to South Ken/Knightsbridge."
     },
     {
@@ -409,7 +409,7 @@ window.HOUSING_DATA = {
       "beds": 4, "baths": 3, "furnished": "unknown",
       "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 12 },
-      "added": "2026-07-13", "last_checked": "2026-07-13", "needs_check": false,
+      "added": "2026-07-13", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "4-double-bed + study mansion-block flat (1,593 sq ft) with patio on Chiltern Street; porter."
     },
     {
@@ -421,7 +421,7 @@ window.HOUSING_DATA = {
       "lat": 51.5372, "lng": -0.1170, "approx_location": true,
       "price_pcm": 7500, "price_note": "£1,731 pw",
       "beds": 4, "baths": 3, "furnished": "part",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 25 },
       "added": "2026-07-18", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-08-28",
@@ -436,7 +436,7 @@ window.HOUSING_DATA = {
       "lat": 51.5378, "lng": -0.1052, "approx_location": true,
       "price_pcm": 8500, "price_note": "£1,962 pw",
       "beds": 4, "baths": 2, "furnished": "unknown",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 20, "paddington": 30 },
       "added": "2026-07-18", "last_checked": "2026-07-18", "needs_check": true,
       "available_from": "2026-07-21",
@@ -451,7 +451,7 @@ window.HOUSING_DATA = {
       "lat": 51.5535, "lng": -0.0965, "approx_location": true,
       "price_pcm": 7000, "price_note": "£1,615 pw; reduced 6 Jul; garage by separate negotiation",
       "beds": 4, "baths": 2, "furnished": "unknown",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 25, "paddington": 35 },
       "added": "2026-07-18", "last_checked": "2026-07-18", "needs_check": true,
       "available_from": "2026-09-03",
@@ -466,7 +466,7 @@ window.HOUSING_DATA = {
       "lat": 51.5555, "lng": -0.1290, "approx_location": true,
       "price_pcm": 4300, "price_note": "£992 pw",
       "beds": 4, "baths": 3, "furnished": "part",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "rejected",
       "commute_est": { "liverpool_street": 30, "paddington": 35 },
       "added": "2026-07-18", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-08-09",
@@ -481,7 +481,7 @@ window.HOUSING_DATA = {
       "lat": 51.5645, "lng": -0.1290, "approx_location": true,
       "price_pcm": 4500, "price_note": "£1,038 pw; council tax included in rent; HMO licensed",
       "beds": 4, "baths": 2, "furnished": "yes",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "rejected",
       "commute_est": { "liverpool_street": 30, "paddington": 40 },
       "added": "2026-07-18", "last_checked": "2026-07-18", "needs_check": false,
       "available_from": "2026-09-28",
@@ -496,7 +496,7 @@ window.HOUSING_DATA = {
       "lat": 51.5230, "lng": -0.1050, "approx_location": true,
       "price_pcm": 8000, "price_note": "£1,846 pw; available immediately (timing vs mid-Sep to confirm)",
       "beds": 4, "baths": 2, "furnished": "no",
-      "availability": "live", "status": "inbox",
+      "availability": "live", "status": "promising",
       "commute_est": { "liverpool_street": 10, "paddington": 15 },
       "added": "2026-07-18", "last_checked": "2026-07-18", "needs_check": false,
       "summary": "Grade II listed Clerkenwell house over four floors (1,708 sq ft) with flexible 4th bed/office, Gaggenau kitchen and a 30ft courtyard garden; Farringdon Elizabeth line gives both stations ≤15 min. Listed unfurnished."
